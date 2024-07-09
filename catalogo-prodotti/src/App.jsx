@@ -48,8 +48,8 @@ function App() {
     });
   }
 
-  const handleDelete = (e) => {
-    const newList = item.filter((item) => item.id !== e.target.id);
+  const handleDelete = (id) => {
+    const newList = item.filter((item) => item.id !== id);
     setItem(newList);
   }
 
@@ -105,7 +105,7 @@ function App() {
             .filter((item) => item.category.includes(filter))
             .map((item) => {
               return (
-                <Product key={item.id} item={item} onClick={handleDelete} />
+                <Product key={item.id} item={item} handleDelete={handleDelete} />
               )
             })}
         </div>
